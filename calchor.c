@@ -47,7 +47,7 @@ line0[1].z=10;
   {
   *Height=point.z;
   fl=true;
-  printf("LTI_C res: %d",LIT_CGAL(line0,tri,&point));
+
   break;
   }
 
