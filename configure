@@ -1,0 +1,15 @@
+#!/bin/bash
+case $1  in
+    CGAL)
+    echo CGAL
+    cp CGAL.def version.def
+    ;;
+    LIGHT)
+    echo LIGHT
+    cp LIGHT.def version.def
+    ;;
+    *)
+    echo 'configure CGAL|LIGHT'
+    ;;
+esac
+
