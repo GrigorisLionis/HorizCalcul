@@ -36,8 +36,8 @@ The code is split into four source code files.
 
 ### ToDo
 It is a 0.8 level so there is substantial work to be made
-* code cleaning, some redundant code is there
-*  ~~connect with a computational geometry library. Ray-Triangle computations are bread-&-butter for computational libraries ~~
-* implement a geotiff layer. This would substantially increase speed and reduce a lot of helper code. In particular, geoTIFF is already in a grid, so a lot of constructions would be un necessary
+* code cleaning, some redundant  and ugly code is  still there
+*  <del>connect with a computational geometry library. Ray-Triangle computations are bread-&-butter for computational libraries <\del>
+* link with  a geotiff layer. This would substantially increase speed and reduce a lot of helper code. In particular, geoTIFF is already in a grid, so a lot of constructions would be un necessary
 
  
