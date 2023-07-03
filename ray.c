@@ -6,6 +6,10 @@
 
 #define sgn(v) ((v>0)-(v<0))
 
+
+
+#include "version.def"
+
 void rotate_xy(float x0, float y0,float theta, float *yn)
 {
 //*xn=x0*cos(theta)-y0*sin(theta);
@@ -87,9 +91,16 @@ It is cheaper to check if a triangle is on the "other" side of the eminating ray
 */
 if ( ( (sgn(tri[0].x-line0[0].x)==DirX) && (sgn(tri[1].y-line0[0].y)==DirY) )  || ( (sgn(tri[1].x-line0[0].x)==DirX) && (sgn(tri[2].y-line0[0].y)==DirY)) || ( (sgn(tri[2].x-line0[0].x)==DirX) && (sgn(tri[2].y-line0[0].y)==DirY)) ) 
 if(tri_lin(tri,-theta)==true)
+#ifdef CGAL
 if(LIT_CGAL(line0, tri, &point)) 
+#endif
+#ifdef LIGHT
+if(LIT(line0, tri, &point) ) 
+#endif
 return true;
 
+
+//define either CGAL or LIGHT
 
 
 /*calcultate second triangle on the same XY Grid*/
@@ -101,7 +112,12 @@ tri[1].z=GridZ[k+(l+1)*xL];
 
 if ( ( (sgn(tri[0].x-line0[0].x)==DirX) && (sgn(tri[1].y-line0[0].y)==DirY) )  || ( (sgn(tri[1].x-line0[0].x)==DirX) && (sgn(tri[2].y-line0[0].y)==DirY)) || ( (sgn(tri[2].x-line0[0].x)==DirX) && (sgn(tri[2].y-line0[0].y)==DirY)) ) 
 if(tri_lin(tri,-theta)==true)
+#ifdef CGAL
 if(LIT_CGAL(line0, tri, &point) ) 
+#endif
+#ifdef LIGHT
+if(LIT(line0, tri, &point) ) 
+#endif
 return true;
 
 
@@ -116,4 +132,3 @@ return false;
 
 
 }
-
